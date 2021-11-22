@@ -1,0 +1,17 @@
+button {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.btn_rouge {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+.btn_bleue{
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  font-weight: bold;
+}

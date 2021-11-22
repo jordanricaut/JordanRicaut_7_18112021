@@ -1,0 +1,14 @@
+.form_text {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  margin-right: 20px;
+  font-size: 15px;
+}
+
+input[type=text] {
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid red;
+}
