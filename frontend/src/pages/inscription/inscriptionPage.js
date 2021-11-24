@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import InscriptionCSS from "./inscription.module.css"
 
@@ -11,6 +11,7 @@ function InscriptionPage() {
   useEffect(() => {
     document.title = "Groupomania - Inscription"
   }, [])
+
 
   return (
     <div className={InscriptionCSS.container}>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ConnexionCSS from "./connexion.module.css";
 
 import FormulaireText from '../../components/Formulaire/Text/FormulaireText'
@@ -11,6 +11,10 @@ function ConnexionPage() {
     document.title = "Groupomania - Connexion ou Inscription"
   }, [])
 
+  const [data, setData] = useState({
+    email:'',
+    mdp:''
+  })
 
   return (
     <div className={ConnexionCSS.container}>
@@ -19,8 +23,8 @@ function ConnexionPage() {
         <h2> Restez connectez avec vos collègues</h2>
       </div>
       <div className={ConnexionCSS.droite}>
-        <FormulaireText id="email" name="email" label="Adresse e-mail"/>
-        <FormulaireText id="mdp" name="mdp" label="Mot de passe" />
+        <FormulaireText data={data} setData={setData} id="email" name="email" label="Adresse e-mail"/>
+        <FormulaireText data={data} setData={setData} id="mdp" name="mdp" label="Mot de passe" />
         <FormulaireBouton boutonTexte="Se Connecter" boutonId="connexion" css="btn_rouge"/>
         <FormulaireBouton boutonTexte="S'inscrire" boutonId="sinscrire" css="btn_bleue"/>
       </div>
