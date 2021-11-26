@@ -1,29 +1,23 @@
-import React, { useState } from 'react';
+
+import React from 'react';
 
 import './formulaireText.css'
 
-function FormulaireText({data, setData, id, name, label }) {
-
-  const [element, setElement] = useState('')
-
+function FormulaireText({data, setData, id, name, label, prevState }) {
 
   const handleChange = (e) => {
-    setElement(e.target.value)
-    setData({
-      email:e.target.value,
-      mdp:e.target.value
-    })
-    console.log(data)
-}
+    setData(prevState => {
+      return { ...prevState, [id]: e.target.value }
+    });
+  }
 
   return (
     <div className="form_text">
       <label htmlFor={id}>{label}</label>
-      <input type="text" id={id} name={name} value={element} onChange={handleChange}/>
+      <input type="text" id={id} name={name} value={data.id} onChange={handleChange}/>
     </div>
-  )
+  );
+
 }
-
-
 
 export default FormulaireText

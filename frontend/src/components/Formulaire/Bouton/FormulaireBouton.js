@@ -4,27 +4,27 @@ import { useNavigate } from 'react-router';
 
 import './bouton.css'
 
-function FormulaireBouton(props) {
+function FormulaireBouton({css, boutonId, boutonTexte, data}) {
 
   let navigate = useNavigate();
 
   function handleClick(e) {
-    if (props.boutonId === 'connexion') {
+    if (boutonId === 'connexion') {
       e.preventDefault();
-      console.log('Bouton connexion')
+      console.log(data)
     }
-    if (props.boutonId === 'sinscrire') {
+    if (boutonId === 'sinscrire') {
       e.preventDefault();
       navigate('/inscription')
     }
-    if (props.boutonId === 'inscription') {
+    if (boutonId === 'inscription') {
       e.preventDefault();
-      console.log('Bouton inscription')
+      console.log(data)
     }
   }
 
 
-  return <button type="button" onClick={handleClick} className={props.css} id={props.boutonId}>{props.boutonTexte}</button>
+  return <button type="button" onClick={handleClick} className={css} id={boutonId}>{boutonTexte}</button>
 }
 
 export default FormulaireBouton

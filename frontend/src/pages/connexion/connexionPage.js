@@ -25,7 +25,7 @@ function ConnexionPage() {
       <div className={ConnexionCSS.droite}>
         <FormulaireText data={data} setData={setData} id="email" name="email" label="Adresse e-mail"/>
         <FormulaireText data={data} setData={setData} id="mdp" name="mdp" label="Mot de passe" />
-        <FormulaireBouton boutonTexte="Se Connecter" boutonId="connexion" css="btn_rouge"/>
+        <FormulaireBouton data={data} boutonTexte="Se Connecter" boutonId="connexion" css="btn_rouge"/>
         <FormulaireBouton boutonTexte="S'inscrire" boutonId="sinscrire" css="btn_bleue"/>
       </div>
     </div>
