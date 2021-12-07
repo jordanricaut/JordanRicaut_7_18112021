@@ -20,8 +20,8 @@ function PostPage() {
       <Header />
       <div class="post_unique">
       <Post contenu={contenu} titre="Ferrari" imagesrc="https://sf1.auto-moto.com/wp-content/uploads/sites/9/2021/03/f1-2021-ferrari-sf21-6.jpg"/>
-      <Bouton boutonTexte="Modifier" boutonId="modification-post" css="btn_rouge"/>
-      <Bouton boutonTexte="Supprimer" boutonId="suppression-post" css="btn_rouge"/>
+      <Bouton boutonTexte="Modifier" boutonId="modification-post" css="btn_gris_post"/>
+      <Bouton boutonTexte="Supprimer" boutonId="suppression-post" css="btn_rouge_post"/>
 
     </div>
     </div>

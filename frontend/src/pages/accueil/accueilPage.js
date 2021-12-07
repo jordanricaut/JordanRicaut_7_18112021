@@ -38,7 +38,6 @@ function AccueilPage() {
         <div class="aside_droite">
           <h3 class="titre">Vos Posts</h3>
             <Bouton boutonTexte="Nouveau Post" boutonId="nouveau-post" css="btn_rouge margin-r10"/>
-            <Bouton boutonTexte="Voir vos Posts" boutonId="nouveau-post" css="btn_rouge"/>
         </div>
     </div>
   </div>

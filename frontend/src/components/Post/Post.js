@@ -1,5 +1,8 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom';
+
+
 import './post.css'
 
 
@@ -20,7 +23,9 @@ function Post({titre, imagesrc, contenu, plus, css}) {
       <h2>{titre}</h2>
       <img src={imagesrc} style={{maxWidth: '100%'}}/>
       <p>{contenu}</p>
-      <p>{plus}</p>
+      <Link to="/post/1">
+        <p>{plus}</p>
+      </Link>
     </div>
   )
 }

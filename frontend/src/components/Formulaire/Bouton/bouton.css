@@ -15,3 +15,17 @@ button {
   border: none;
   font-weight: bold;
 }
+.btn_rouge_post {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  font-weight: bold;
+  margin: 5px;
+}
+.btn_gris_post {
+  background-color: #6C767D;
+  color: white;
+  border: none;
+  font-weight: bold;
+  margin: 5px;
+}

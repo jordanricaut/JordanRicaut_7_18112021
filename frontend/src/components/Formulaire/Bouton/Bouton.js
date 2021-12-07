@@ -31,10 +31,6 @@ function Bouton({css, boutonId, boutonTexte, data}) {
       e.preventDefault();
       navigate('/nouveau-post')
     }
-    if (boutonId === 'vos-post') {
-      e.preventDefault();
-      navigate('/vos-post')
-    }
     if (boutonId === 'modifier-profil') {
       e.preventDefault();
       navigate('/modifier-profil')
