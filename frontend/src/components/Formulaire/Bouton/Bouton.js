@@ -39,6 +39,14 @@ function Bouton({css, boutonId, boutonTexte, data}) {
       e.preventDefault();
       navigate('/modifier-profil')
     }
+    if (boutonId === 'modification-post') {
+      e.preventDefault();
+      console.log("Modification du post")
+    }
+    if (boutonId === 'suppression-post') {
+      e.preventDefault();
+      console.log("Suppression du post")
+    }
   }
 
 

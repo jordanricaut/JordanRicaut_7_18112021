@@ -5,6 +5,7 @@ import ConnexionPage from './pages/connexion/connexionPage';
 import InscriptionPage from './pages/inscription/inscriptionPage';
 import AccueilPage from './pages/accueil/accueilPage'
 import ErreurPage from './pages/erreur/Erreur'
+import PostPage from './pages/post/postPage'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           <Route path="/connexion" element={<ConnexionPage />} />
           <Route path="/inscription" element={<InscriptionPage />} />
           <Route path="/accueil" element={<AccueilPage />} />
+          <Route path="/post/:id" element={<PostPage />} />
           <Route path="/acceuiltest" element={<AccueilPage />} />
           <Route path="*" element={<ErreurPage />} />
         </Routes>

@@ -5,7 +5,8 @@ import './post.css'
 
 
 
-function Post({titre, imagesrc, contenu}) {
+
+function Post({titre, imagesrc, contenu, plus, css}) {
 
 
   if (window.location.pathname === "/accueil") {
@@ -15,11 +16,11 @@ function Post({titre, imagesrc, contenu}) {
   }
 
   return (
-    <div class="post">
-      <h4>{titre}</h4>
+    <div class={css}>
+      <h2>{titre}</h2>
       <img src={imagesrc} style={{maxWidth: '100%'}}/>
       <p>{contenu}</p>
-      <p>Voir Plus</p>
+      <p>{plus}</p>
     </div>
   )
 }

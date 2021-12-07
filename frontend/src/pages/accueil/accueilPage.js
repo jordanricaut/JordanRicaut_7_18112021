@@ -29,9 +29,11 @@ function AccueilPage() {
         </div>
         <div class="main">
           <h3 class="titre">Fil d'actu</h3>
-          <Post contenu={contenu} titre="Ferrari" imagesrc="https://sf1.auto-moto.com/wp-content/uploads/sites/9/2021/03/f1-2021-ferrari-sf21-6.jpg"/>
-          <Post contenu={contenu} titre="Ferrari" imagesrc="https://sf1.auto-moto.com/wp-content/uploads/sites/9/2021/03/f1-2021-ferrari-sf21-6.jpg"/>
-          <Post contenu={contenu} titre="Ferrari" imagesrc="https://sf1.auto-moto.com/wp-content/uploads/sites/9/2021/03/f1-2021-ferrari-sf21-6.jpg"/>
+          <div class="posts">
+            <Post css="post" contenu={contenu} titre="Ferrari" imagesrc="https://sf1.auto-moto.com/wp-content/uploads/sites/9/2021/03/f1-2021-ferrari-sf21-6.jpg" plus="Voir Plus"/>
+            <Post css="post" contenu={contenu} titre="Ferrari" imagesrc="https://sf1.auto-moto.com/wp-content/uploads/sites/9/2021/03/f1-2021-ferrari-sf21-6.jpg" plus="Voir Plus"/>
+            <Post css="post" contenu={contenu} titre="Ferrari" imagesrc="https://sf1.auto-moto.com/wp-content/uploads/sites/9/2021/03/f1-2021-ferrari-sf21-6.jpg" plus="Voir Plus"/>
+          </div>
         </div>
         <div class="aside_droite">
           <h3 class="titre">Vos Posts</h3>
