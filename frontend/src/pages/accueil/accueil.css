@@ -1,0 +1,21 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 40px;
+}
+.aside_gauche {
+  margin-top: 55px;
+  margin-left: 10px;
+}
+.aside_droite {
+  margin-top: 55px;
+  margin-right: 10px;
+}
+.main {
+  margin-top: 55px;
+  display: grid;
+  grid-row-gap: 30px;
+}
+.titre {
+  color: #F44336;
+}

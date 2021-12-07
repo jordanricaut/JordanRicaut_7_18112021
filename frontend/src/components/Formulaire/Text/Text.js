@@ -1,9 +1,9 @@
 
 import React from 'react';
 
-import './formulaireText.css'
+import './text.css'
 
-function FormulaireText({data, setData, id, name, label, prevState }) {
+function Text({data, setData, id, name, label, prevState }) {
 
   const handleChange = (e) => {
     setData(prevState => {
@@ -20,4 +20,4 @@ function FormulaireText({data, setData, id, name, label, prevState }) {
 
 }
 
-export default FormulaireText
+export default Text

@@ -7,21 +7,30 @@
   display: flex;
 }
 
-.header img {
+.logo {
   height: 70%;
   display: block;
   margin: auto;
 }
+.btn_deconnexion {
+  margin: 10px;
+  border-style: none;
+}
+.btn_deconnexion:hover {
+  color: white;
+  background-color: #F44336;
 
-h1 {
+}
+.accueil {
   color: black;
   font-size: 25px;
   margin-left: 10px;
+  margin-right: 15px;
   margin-top: 12px;
   transform: scale(1);
   transition-duration: 0.5s;
 }
-h1:hover {
+.accueil:hover {
   color: #F44336;
   transform: scale(1);
   transition-duration: 0.5s;

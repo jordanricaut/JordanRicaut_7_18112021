@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import InscriptionCSS from "./inscription.module.css"
 
-import FormulaireText from '../../components/Formulaire/Text/FormulaireText'
-import FormulaireBouton from '../../components/Formulaire/Bouton/FormulaireBouton'
+import Text from '../../components/Formulaire/Text/Text'
+import Bouton from '../../components/Formulaire/Bouton/Bouton'
 
 import Logo from "../../assets/img/icon-above-font.svg"
 
@@ -26,11 +26,11 @@ function InscriptionPage() {
         <h2> Restez connectez avec vos collègues</h2>
       </div>
       <div className={InscriptionCSS.droite}>
-        <FormulaireText data={data} setData={setData} id="prenom" name="Prénom" label="Prénom" />
-        <FormulaireText data={data} setData={setData} id="nom" name="Nom" label="Nom" />
-        <FormulaireText data={data} setData={setData} id="email" name="email" label="Adresse e-mail"/>
-        <FormulaireText data={data} setData={setData} id="mdp" name="mdp" label="Mot de passe" />
-        <FormulaireBouton data={data} boutonTexte="S'inscrire" boutonId="inscription" css="btn_rouge"/>
+        <Text data={data} setData={setData} id="prenom" name="Prénom" label="Prénom" />
+        <Text data={data} setData={setData} id="nom" name="Nom" label="Nom" />
+        <Text data={data} setData={setData} id="email" name="email" label="Adresse e-mail"/>
+        <Text data={data} setData={setData} id="mdp" name="mdp" label="Mot de passe" />
+        <Bouton data={data} boutonTexte="S'inscrire" boutonId="inscription" css="btn_rouge"/>
         <Link to="/connexion">
         <p>Retour</p>
         </Link>

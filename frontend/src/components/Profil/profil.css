@@ -1,0 +1,15 @@
+.profil {
+  background-color: white;
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.photo_profil {
+  width: 30%;
+  margin: auto;
+  border-radius: 100%
+}
+.infos {
+  margin: 20px auto;
+}
