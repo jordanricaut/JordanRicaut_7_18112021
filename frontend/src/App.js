@@ -6,6 +6,7 @@ import InscriptionPage from './pages/inscription/inscriptionPage';
 import AccueilPage from './pages/accueil/accueilPage'
 import ErreurPage from './pages/erreur/Erreur'
 import PostPage from './pages/post/postPage'
+import ModifProfilPage from './pages/modif-profil/modifProfilPage'
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
           <Route path="/inscription" element={<InscriptionPage />} />
           <Route path="/accueil" element={<AccueilPage />} />
           <Route path="/post/:id" element={<PostPage />} />
-          <Route path="/acceuiltest" element={<AccueilPage />} />
+          <Route path="modification-profil" element={<ModifProfilPage />} />
           <Route path="*" element={<ErreurPage />} />
         </Routes>
       </Router>

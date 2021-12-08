@@ -33,7 +33,7 @@ function Bouton({css, boutonId, boutonTexte, data}) {
     }
     if (boutonId === 'modifier-profil') {
       e.preventDefault();
-      navigate('/modifier-profil')
+      navigate('/modification-profil')
     }
     if (boutonId === 'modification-post') {
       e.preventDefault();
@@ -42,6 +42,11 @@ function Bouton({css, boutonId, boutonTexte, data}) {
     if (boutonId === 'suppression-post') {
       e.preventDefault();
       console.log("Suppression du post")
+    }
+    if (boutonId === 'modifier-son-profil') {
+      e.preventDefault();
+      console.log(data)
+      navigate('/accueil')
     }
   }
 
