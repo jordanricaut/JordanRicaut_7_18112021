@@ -1,0 +1,9 @@
+.form_nouveaupost {
+  margin: 20px 400px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 20px;
+}

@@ -48,6 +48,12 @@ function Bouton({css, boutonId, boutonTexte, data}) {
       console.log(data)
       navigate('/accueil')
     }
+    if (boutonId === 'envoyer-post') {
+      e.preventDefault();
+      console.log(data)
+      navigate('/accueil')
+    }
+
   }
 
 

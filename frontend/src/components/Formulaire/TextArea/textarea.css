@@ -1,0 +1,8 @@
+textarea {
+  resize: none;
+  min-height: 100px;
+}
+label {
+  margin-right: 20px;
+  font-size: 15px;
+}
