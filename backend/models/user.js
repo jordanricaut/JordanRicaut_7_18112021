@@ -3,6 +3,11 @@ const db = require('../config/db')
 
 
 const User = db.define("user", {
+  id: {
+    primaryKey: true,
+    type: Sequelize.UUID,
+    defaultValue: Sequelize.UUIDV4
+  },
   email: {
     type: Sequelize.STRING,
     unique: true,
@@ -45,5 +50,6 @@ const User = db.define("user", {
   }, {
   timestamps: false,
 });
+
 
 module.exports = User;
