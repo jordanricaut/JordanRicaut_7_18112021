@@ -35,18 +35,40 @@ const User = db.define("user", {
   nom: {
     type: Sequelize.STRING,
     unique: true,
-    required: true
+    required: true,
+    allowNull: false,
+    validate: {
+      notNull: {
+        msg: 'Vous devez saisir un nom',
+      },
+      notEmpty: {
+        msg: 'Vous devez saisir un nom',
+      },
+    }
   },
   prenom: {
     type: Sequelize.STRING,
     unique: true,
-    required: true
+    required: true,
+    allowNull: false,
+    validate: {
+      notNull: {
+        msg: 'Vous devez saisir un prenom',
+      },
+      notEmpty: {
+        msg: 'Vous devez saisir un prenom',
+      },
+    }
   },
   mdp: {
     type: Sequelize.STRING,
     unique: true,
-    required: true
+    required: true,
+    allowNull: false,
   },
+  likes: {
+    type: [Sequelize.STRING]
+  }
   }, {
   timestamps: false,
 });

@@ -1,5 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser')
+
+const {verifUser, requireAuth} = require('./middleware/auth.middleware')
+
+require('dotenv').config()
+
 
 const userRoutes = require('./routes/user.routes')
 
@@ -25,10 +31,14 @@ app.use((req, res, next) => {
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(cookieParser())
 
-app.get("/", (req, res) => {
-  res.json({ message: "API Groupomania" });
-});
+
+app.get('*', verifUser);
+app.get('/jwtid', requireAuth, (req, res, next) => {
+  res.status(200).json({id: res.locals.user.id})
+  next()
+})
 
 app.use('/api/user', userRoutes);
 

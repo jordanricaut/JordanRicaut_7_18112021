@@ -14,7 +14,6 @@ module.exports.getAllUsers = async (req, res, next) => {
 }
 
 module.exports.getOneUser = async (req, res, next) => {
-  console.log(req.params)
   try {
     const user = await UserModel.findOne({where: {id: req.params.id}})
 
