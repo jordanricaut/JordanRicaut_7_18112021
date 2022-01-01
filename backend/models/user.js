@@ -65,9 +65,6 @@ const User = db.define("user", {
     unique: true,
     required: true,
     allowNull: false,
-  },
-  likes: {
-    type: [Sequelize.STRING]
   }
   }, {
   timestamps: false,

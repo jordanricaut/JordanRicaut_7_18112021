@@ -15,7 +15,6 @@ module.exports.verifUser = (req, res, next) => {
         let user = await UserModel.findByPk(tokenDecode.id)
         res.locals.user = user;
         let userLocal = user.dataValues
-        console.log(userLocal)
         next()
       }
     })

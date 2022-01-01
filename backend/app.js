@@ -8,6 +8,7 @@ require('dotenv').config()
 
 
 const userRoutes = require('./routes/user.routes')
+const postRoutes = require('./routes/post.routes')
 
 const db = require('./config/db')
 
@@ -35,12 +36,14 @@ app.use(cookieParser())
 
 
 app.get('*', verifUser);
+app.post('*', verifUser);
 app.get('/jwtid', requireAuth, (req, res, next) => {
   res.status(200).json({id: res.locals.user.id})
   next()
 })
 
 app.use('/api/user', userRoutes);
+app.use('/api/post', postRoutes)
 
 
 module.exports = app;
