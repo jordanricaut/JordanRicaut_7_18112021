@@ -37,6 +37,9 @@ app.use(cookieParser())
 
 app.get('*', verifUser);
 app.post('*', verifUser);
+app.put('*', verifUser);
+app.delete('*', verifUser);
+
 app.get('/jwtid', requireAuth, (req, res, next) => {
   res.status(200).json({id: res.locals.user.id})
   next()
