@@ -25,7 +25,7 @@ const Post = db.define("posts", {
     type: Sequelize.STRING,
     required: true
   }
-  });
+});
 
 
 module.exports = Post;

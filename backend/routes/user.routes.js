@@ -2,7 +2,6 @@ const router = require('express').Router()
 const authController = require('../controllers/auth.controller')
 const userController = require('../controllers/user.controller')
 
-
 router.post("/inscription", authController.inscription);
 router.post("/connexion", authController.connexion)
 router.get("/deconnexion", authController.deconnexion)

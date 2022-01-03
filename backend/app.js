@@ -12,9 +12,22 @@ const postRoutes = require('./routes/post.routes')
 
 const db = require('./config/db')
 
+
+let date1 = new Date();
+let dateLocale = date1.toLocaleString('fr-FR',{
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit"
+});
+
 db.authenticate()
   .then(() => {
       console.log("Connexion avec la bdd :", process.env.MYSQL_BDD, "réussi")
+      console.log(dateLocale)
+      console.log(new Date().toISOString())
   })
   .catch(error => {
     console.log("Probleme connexion bdd : ", error)

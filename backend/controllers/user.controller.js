@@ -26,26 +26,16 @@ module.exports.getOneUser = async (req, res, next) => {
 
 module.exports.modifyOneUser = async (req,res, next) => {
   try {
-    const {email, nom, prenom} = req.body
-    const mdp = await bcrypt.hash(req.body.mdp, 10)
-    const findOneUser = await UserModel.findOne({where: {id: req.params.id}})
-    if (!findOneUser) {
-      res.status(400).json({message: "Utilisateur inconnu"})
-    }
-    if (email) { findOneUser.email = email }
-    if (nom) { findOneUser.nom = nom }
-    if (prenom) { findOneUser.prenom = prenom }
-    if (mdp) { findOneUser.mdp = mdp }
-
-    const updateUser = await findOneUser.save()
-    if (!updateUser) {
-      res.status(500).json({ error: 'Echec de la modification'})
-    }
+  const mdp = await bcrypt.hash(req.body.mdp, 10)
+  const findOneUser = await UserModel.findOne({where: {id: req.params.id}})
+  if (!findOneUser) {
+    res.status(400).json({message: "Utilisateur inconnu"})
+  }
+    findOneUser.update({...req.body, mdp: mdp} )
     res.status(200).json({message: 'Utilisateur modifié !'})
-  }
-  catch(err) {
-    res.status(500).json({ error: 'Erreur'})
-  }
+  } catch(err) {
+  return res.status(500).json({ err } )
+}
 }
 
 module.exports.deleteOneUser = async (req,res, next) => {
