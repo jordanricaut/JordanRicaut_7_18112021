@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 
-const {verifUser, requireAuth} = require('./middleware/auth.middleware')
+const { verifUser, requireAuth } = require('./middleware/auth.middleware')
 
 require('dotenv').config()
 
@@ -48,12 +48,12 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(cookieParser())
 
 
-app.get('*', verifUser);
-app.post('*', verifUser);
-app.put('*', verifUser);
-app.delete('*', verifUser);
+app.get('*', requireAuth);
+app.post('*', requireAuth);
+app.put('*', requireAuth);
+app.delete('*', requireAuth);
 
-app.get('/jwtid', requireAuth, (req, res, next) => {
+app.get('/jwtid', verifUser, (req, res, next) => {
   res.status(200).json({id: res.locals.user.id})
   next()
 })

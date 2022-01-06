@@ -1,7 +1,9 @@
+// Importation du model pour les commentaires
 const UserModel = require('../models/user')
+// Liste des paquets utilisés
 const bcrypt = require('bcrypt');
 
-
+// Permet l'affichage de tout les utilisateurs inscrits
 module.exports.getAllUsers = async (req, res, next) => {
   try {
     const users = await UserModel.findAll()
@@ -13,6 +15,7 @@ module.exports.getAllUsers = async (req, res, next) => {
   }
 }
 
+// Permet l'affichage d'un utilisateur
 module.exports.getOneUser = async (req, res, next) => {
   try {
     const user = await UserModel.findOne({where: {id: req.params.id}})
@@ -24,6 +27,7 @@ module.exports.getOneUser = async (req, res, next) => {
   }
 }
 
+// Permet la modification des informations d'un utilisateur
 module.exports.modifyOneUser = async (req,res, next) => {
   try {
   const mdp = await bcrypt.hash(req.body.mdp, 10)
@@ -38,6 +42,7 @@ module.exports.modifyOneUser = async (req,res, next) => {
 }
 }
 
+// Permet de supprimer un utilisateur
 module.exports.deleteOneUser = async (req,res, next) => {
   try {
     const user = await UserModel.destroy({where: {id: req.params.id}})

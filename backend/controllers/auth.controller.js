@@ -1,13 +1,17 @@
+// Liste des paquets utilisés
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 
-
+// Importation du model pour les utilisateurs
 const UserModel = require('../models/user')
+// Calcul du temps pour la validité du jwt (1 jour)
 const maxAge = 1 * 25 * 60 * 60 * 1000
+// Fonction pour la création du token jwt
 const createToken = (id) => {
   return jwt.sign({id}, process.env.TOKEN_SECRET, { expiresIn: maxAge })
 }
 
+// Gestion pour l'inscription des utilisateurs
 module.exports.inscription = async (req, res) => {
   const {email, nom, prenom} = req.body
   if (req.body.mdp.length < 6) {
@@ -23,6 +27,7 @@ module.exports.inscription = async (req, res) => {
   }
 }
 
+// Gestion pour la connexion des utilisateurs
 module.exports.connexion = async (req, res) => {
   const { email, mdp } = req.body;
   const user = await UserModel.findOne({where: {email: req.body.email}})
@@ -39,6 +44,7 @@ module.exports.connexion = async (req, res) => {
     return res.status(400).json({erreur: "Mauvais mot de passe"})
 };
 
+// Gestion pour la déconnexion des utilisateurs
 module.exports.deconnexion = async (req, res) => {
   res.cookie('jwt', '', {maxAge: 1})
   res.redirect("/");

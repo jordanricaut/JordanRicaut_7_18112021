@@ -1,10 +1,12 @@
+// Importation des models pour les posts, utilisateurs et likes
 const PostModel = require('../models/post')
 const UserModel = require('../models/user')
 const LikeModel = require('../models/like')
+// Liste des paquets utilisés
 const jwt = require('jsonwebtoken')
 const fs = require('fs')
 
-
+// Permet d'afficher tout les posts
 module.exports.lireToutLesPosts = async (req, res) => {
   try {
     const posts = await PostModel.findAll()
@@ -16,6 +18,7 @@ module.exports.lireToutLesPosts = async (req, res) => {
   }
 }
 
+// Permet d'afficher un post spécifique
 module.exports.lireUnPost = async (req,res) =>{
   try {
     const post = await PostModel.findOne({where: {id: req.params.id}})
@@ -27,6 +30,7 @@ module.exports.lireUnPost = async (req,res) =>{
   }
 }
 
+// Permet de créer un post
 module.exports.creationPost = async (req, res) => {
   const user = res.locals.user;
   const userId = user.dataValues.id
@@ -44,6 +48,7 @@ module.exports.creationPost = async (req, res) => {
     }
   }
 
+// Permet la modification d'un post
 module.exports.modificationPost = async (req, res) => {
   const findOnePostpost = await PostModel.findOne({where: {id: req.params.id}})
   if (!findOnePostpost) {
@@ -61,12 +66,12 @@ module.exports.modificationPost = async (req, res) => {
     return res.status(500).json({message: "Problème sur la modification"})
   }
 
-
+// Permet la suppresion d'un
 module.exports.suppressionPost = async (req, res) => {
   PostModel.findOne({ id: req.params.id })
   .then(post => {
     if (!post) {
-      return res.status(500).json({message: "Post inconnu"})    
+      return res.status(500).json({message: "Post inconnu"})
     }
     const filename = post.imageUrl.split('/images/')[1];
     fs.unlink(`images/post/${filename}`, () => {
@@ -78,6 +83,7 @@ module.exports.suppressionPost = async (req, res) => {
   .catch(error => res.status(500).json({ error }));
   }
 
+// Permet de liker ou supprimer son like d'un post
   module.exports.likePost = async (req, res) => {
     const postId = req.params.id;
     const user = res.locals.user;

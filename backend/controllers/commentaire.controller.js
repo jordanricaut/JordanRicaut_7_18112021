@@ -1,6 +1,7 @@
+// Importation du model pour les commentaires
 const CommentaireModel = require('../models/commentaire')
 
-
+// Permet l'affichage d'un commentaire d'un post
 module.exports.lireUnCommentaire = async (req,res) =>{
   try {
     const post = await CommentaireModel.findOne({where: {id: req.params.id}})
@@ -12,6 +13,7 @@ module.exports.lireUnCommentaire = async (req,res) =>{
   }
 }
 
+// Permet l'affichage de tout les commentaires d'un post
 module.exports.toutLesCommentairePost = async (req, res) => {
   try {
     const commentaire = await CommentaireModel.findAll({where: {postId: req.params.id}})
@@ -23,6 +25,7 @@ module.exports.toutLesCommentairePost = async (req, res) => {
   }
 }
 
+// Permet la création d'un commentaire
 module.exports.creationCommentaire = async (req, res) => {
   const user = res.locals.user;
   const userId = user.dataValues.id
@@ -39,6 +42,7 @@ module.exports.creationCommentaire = async (req, res) => {
   }
 }
 
+// Permet la modification d'un commentaire
 module.exports.modificationCommentaire = async (req, res) => {
   try {
     const message = req.body.message
@@ -58,7 +62,7 @@ module.exports.modificationCommentaire = async (req, res) => {
   }
 }
 
-
+// Permet la suppresion d'un commentaire
 module.exports.suppressionCommentaire = async (req, res) => {
   try {
     const post = await CommentaireModel.destroy({where: {id: req.params.id}})

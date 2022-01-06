@@ -1,9 +1,11 @@
+// Liste des paquets utilisés
 const jwt = require('jsonwebtoken')
+// Importation du model pour les commentaires
 const UserModel = require('../models/user')
 
 
-
-module.exports.verifUser = (req, res, next) => {
+// Permet la vérification si l'utilisateur à le bon jeton jwt
+module.exports.requireAuth = (req, res, next) => {
   const token = req.cookies.jwt
   if (token) {
     jwt.verify(token, process.env.TOKEN_SECRET, async (err, tokenDecode) => {
@@ -24,7 +26,8 @@ module.exports.verifUser = (req, res, next) => {
   }
 }
 
-module.exports.requireAuth = (req, res, next) => {
+// Permet de vérifier l'id de l'utilisateur actuellement connecté
+module.exports.verifUser = (req, res, next) => {
   const token = req.cookies.jwt
   if (token) {
     jwt.verify(token, process.env.TOKEN_SECRET, async (err, tokenDecode) => {
