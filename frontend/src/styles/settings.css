@@ -12,3 +12,11 @@
 *::selection {
   background: '#F44336';
 }
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.erreur {
+  color: red;
+}

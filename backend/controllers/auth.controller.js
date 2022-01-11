@@ -22,8 +22,8 @@ module.exports.inscription = async (req, res) => {
     const user = await UserModel.create({email, nom, prenom, mdp});
     res.status(201).json({user: user.id})
   }
-  catch {
-    res.status(500).json({erreur: "Erreur sur la création de l'utilisateur"})
+  catch(err){
+    res.status(500).json({err})
   }
 }
 
@@ -32,7 +32,7 @@ module.exports.connexion = async (req, res) => {
   const { email, mdp } = req.body;
   const user = await UserModel.findOne({where: {email: req.body.email}})
   if (!user) {
-    return res.status(400).json({erreur: "Mauvaise adresse email"})
+    res.status(400).send("Mauvais email")
   }
   const match = await bcrypt.compare(mdp, user.mdp);
     if(match) {
@@ -41,7 +41,7 @@ module.exports.connexion = async (req, res) => {
       res.status(201).json({user: user.id, token: token})
     }
     res.cookie('jwt', '', {maxAge: 1})
-    return res.status(400).json({erreur: "Mauvais mot de passe"})
+    res.status(400).send("Mauvais mot de passe")
 };
 
 // Gestion pour la déconnexion des utilisateurs

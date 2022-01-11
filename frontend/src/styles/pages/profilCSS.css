@@ -1,0 +1,20 @@
+.log-droite {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0,0,0, .1);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.log-gauche img {
+  width: 400px;
+}
+.log-container {
+  display: flex; /* contexte sur le parent */
+  flex-direction: row; /* direction d'affichage verticale */
+  justify-content: center; /* alignement vertical */
+  transform: translateY(25vh);
+  column-gap: 150px;
+}

@@ -1,2 +1,6 @@
 @import "./settings.css";
 @import "./font.css";
+
+@import "./pages/profilCSS.css";
+
+@import "./components/log.css";
