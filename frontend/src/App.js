@@ -5,6 +5,12 @@ import axios from 'axios';
 
 function App() {
 
+useEffect(() => {
+   return (
+    document.title ="Groupomania"
+  )
+}, [])
+
 const [uid, setUid] = useState(false)
 useEffect(async() => {
   await axios({
