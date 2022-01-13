@@ -4,10 +4,12 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 // Pages
 import Accueil from '../../pages/acceuilPage'
 import Profil from '../../pages/profilPage'
+import Navbar from '../../components/Navbar'
 
 function Index() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/"  element={<Accueil />} />
         <Route path="/profil"  element={<Profil />} />

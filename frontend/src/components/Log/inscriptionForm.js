@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState } from "react";
 import ConnexionForm from "./connexionForm";
 
 const InscriptionForm = () => {
@@ -20,8 +20,8 @@ const InscriptionForm = () => {
     mdpConfirmErreur.innerHTML = "";
     termsErreur.innerHTML = "";
 
-    if (mdp != controlMdp || !terms.checked) {
-      if (mdp != controlMdp) {
+    if (mdp !== controlMdp || !terms.checked) {
+      if (mdp !== controlMdp) {
         mdpConfirmErreur.innerHTML = "Les mots de passe ne correspondent pas";
       }
       if (!terms.checked) {
