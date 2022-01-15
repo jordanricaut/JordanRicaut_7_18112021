@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav>
       <div className="nav-container">
         <div className="logo">
-          <Link exact to="/">
+          <Link to="/">
             <img src="./img/icon-left-font-monochrome-black.png" alt="logo" />
           </Link>
         </div>
@@ -22,7 +22,7 @@ const Navbar = () => {
               <h4 className="navbar-bienvenue">Bienvenue {userData.prenom}</h4>
             </li>
             <li>
-              <Link exact to="/profil">
+              <Link to="/profil">
                 <input
                   className="btn_profil"
                   type="button"
@@ -36,7 +36,7 @@ const Navbar = () => {
           <ul className="navbar-profil">
             <li></li>
             <li>
-              <Link exact to="/profil">
+              <Link to="/profil">
                 <input
                   className="btn_profil"
                   type="button"

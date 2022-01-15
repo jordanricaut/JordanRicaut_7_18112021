@@ -30,14 +30,15 @@ module.exports.getOneUser = async (req, res, next) => {
 // Permet la modification des informations d'un utilisateur
 module.exports.modifyOneUser = async (req,res, next) => {
   try {
-  const mdp = await bcrypt.hash(req.body.mdp, 10)
   const findOneUser = await UserModel.findOne({where: {id: req.params.id}})
   if (!findOneUser) {
     res.status(400).json({message: "Utilisateur inconnu"})
   }
-    findOneUser.update({...req.body, mdp: mdp} )
+    findOneUser.update({email: req.body.email})
     res.status(200).json({message: 'Utilisateur modifié !'})
   } catch(err) {
+    console.log(req.body);
+
   return res.status(500).json({ err } )
 }
 }

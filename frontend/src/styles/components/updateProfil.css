@@ -1,0 +1,19 @@
+.profil {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 0px 10px 10px 1px rgba(119, 119, 119, 0.1);
+    margin: 20px 400px;
+    padding: 50px;
+}
+.profil h1 {
+    color: #f44336;
+}
+.gras {
+    font-weight: 600;
+}
+.form-succes {
+    color: forestgreen;
+  }

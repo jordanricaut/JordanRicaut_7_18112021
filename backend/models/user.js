@@ -66,8 +66,6 @@ const User = db.define("user", {
     required: true,
     allowNull: false,
   }
-  }, {
-  timestamps: false,
 });
 
 
