@@ -1,4 +1,4 @@
-import { GET_USER, UPDATE_PROFIL } from "../actions/user.actions";
+import { DELETE_USER, GET_USER, UPDATE_PROFIL } from "../actions/user.actions";
 
 const initialState = {};
 
@@ -7,7 +7,7 @@ export default function userReducer(state = initialState, action) {
     case GET_USER:
       return action.payload;
     case UPDATE_PROFIL:
-      return {...state, email:action.payload}
+      return { ...state, email: action.payload };
     default:
       return state;
   }

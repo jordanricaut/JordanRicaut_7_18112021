@@ -4,6 +4,8 @@ const commentaireController = require('../controllers/commentaire.controller')
 
 const multer = require('../middleware/multer-config')
 
+
+
 // Posts
 router.get('/', postController.lireToutLesPosts)
 router.get('/:id', postController.lireUnPost)

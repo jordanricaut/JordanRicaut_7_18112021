@@ -1,10 +1,13 @@
 import React from 'react';
+import FilActu from '../components/FilActu';
 
 function Accueil() {
   return (
-    <React.Fragment>
-      Hello depuis l'Accueil
-    </React.Fragment>
+    <div className='accueil'>
+      <div className='main'>
+        <FilActu />
+      </div>
+    </div>
   )
 }
 

@@ -2,6 +2,7 @@
 const PostModel = require('../models/post')
 const UserModel = require('../models/user')
 const LikeModel = require('../models/like')
+const CommentaireModel = require('../models/commentaire')
 // Liste des paquets utilisés
 const jwt = require('jsonwebtoken')
 const fs = require('fs')
@@ -10,6 +11,7 @@ const fs = require('fs')
 module.exports.lireToutLesPosts = async (req, res) => {
   try {
     const posts = await PostModel.findAll()
+
 
     return res.status(200).json(posts)
   }
@@ -22,8 +24,11 @@ module.exports.lireToutLesPosts = async (req, res) => {
 module.exports.lireUnPost = async (req,res) =>{
   try {
     const post = await PostModel.findOne({where: {id: req.params.id}})
+    const commentaire = await CommentaireModel.findAll({where: {postId: post.id}})
 
-    return res.status(200).json(post)
+    const postData = [post, commentaire]
+
+    return res.status(200).json(postData)
   }
   catch(err) {
     res.status(500).json({ err })

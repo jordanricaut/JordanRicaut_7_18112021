@@ -5,7 +5,6 @@ const CommentaireModel = require('../models/commentaire')
 module.exports.lireUnCommentaire = async (req,res) =>{
   try {
     const post = await CommentaireModel.findOne({where: {id: req.params.id}})
-
     return res.status(200).json(post)
   }
   catch(err) {
@@ -17,7 +16,6 @@ module.exports.lireUnCommentaire = async (req,res) =>{
 module.exports.toutLesCommentairePost = async (req, res) => {
   try {
     const commentaire = await CommentaireModel.findAll({where: {postId: req.params.id}})
-
     return res.status(200).json(commentaire)
   }
   catch(err) {
@@ -31,6 +29,8 @@ module.exports.creationCommentaire = async (req, res) => {
   const userId = user.dataValues.id
   const nouveauCommentaire = new CommentaireModel({
     userId: userId,
+    userNom: user.nom,
+    userPrenom: user.prenom,
     postId: req.params.id,
     message: req.body.message,
   })

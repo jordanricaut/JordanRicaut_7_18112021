@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
+const path = require('path');
 
 const { verifUser, requireAuth } = require('./middleware/auth.middleware')
 
@@ -40,6 +41,8 @@ app.get('/jwtid', verifUser, (req, res, next) => {
   res.status(200).json(res.locals.user.id)
   next()
 })
+
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/api/user', userRoutes);
 app.use('/api/post', postRoutes)

@@ -6,15 +6,20 @@
   outline: none;
   border: none;
   text-decoration: none;
-  font-family: "Montserrat"
+  font-family: "Montserrat";
 }
 
 *::selection {
   background: '#F44336';
 }
-
+#root {
+  background-color: #F0F2F5;
+}
 .mt-20 {
   margin-top: 20px;
+}
+.mt-10 {
+  margin-top: 10px;
 }
 
 .erreur {

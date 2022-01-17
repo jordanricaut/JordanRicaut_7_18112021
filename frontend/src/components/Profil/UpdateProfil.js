@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateProfil } from "../../actions/user.actions";
+import { deleteProfil, updateProfil } from "../../actions/user.actions";
 import { dateParser } from "../utils";
+import cookie from "js-cookie";
+
 
 const UpdateProfil = () => {
   const [formSubmit, setFormSubmit] = useState(false);
   const [email, setEmail] = useState("");
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleUpdate = (e) => {
-      const formErreur = document.querySelector('.form-erreur')
+    const formErreur = document.querySelector(".form-erreur");
     e.preventDefault();
-    if(!email) {
-        formErreur.innerHTML= "Mot de passe identique"
+    if (!email) {
+      formErreur.innerHTML = "Mot de passe identique";
     } else {
-        dispatch(updateProfil(userData.id, email))
-        setFormSubmit(true);
-        window.location.reload();
-
+      dispatch(updateProfil(userData.id, email));
+      setFormSubmit(true);
+      window.location.reload();
     }
   };
 
@@ -28,9 +29,12 @@ const UpdateProfil = () => {
         <div className="profil">
           <h1> Votre profil</h1>
           <div className="profil-infos mt-20">
-            <h3>Prénom : {userData.prenom}</h3>
-            <h3>Nom : {userData.nom}</h3>
+            <p>Prénom : {userData.prenom}</p>
+            <p>Nom : {userData.nom}</p>
           </div>
+          <p className="mt-10">
+            Membre depuis le : {dateParser(userData.createdAt)}
+          </p>
 
           <form
             action=""
@@ -61,10 +65,12 @@ const UpdateProfil = () => {
         <div className="profil">
           <h1> Votre profil</h1>
           <div className="profil-infos mt-20">
-            <h3>Prénom : {userData.prenom}</h3>
-            <h3>Nom : {userData.nom}</h3>
-            <h5>Membre depuis le : {dateParser(userData.createdAt)}</h5>
+            <p>Prénom : {userData.prenom}</p>
+            <p>Nom : {userData.nom}</p>
           </div>
+          <p className="mt-10">
+            Membre depuis le : {dateParser(userData.createdAt)}
+          </p>
 
           <form
             action=""

@@ -13,6 +13,14 @@ const Commentaire = db.define("commentaires", {
     type: Sequelize.STRING,
     required: true
   },
+  userNom: {
+    type: Sequelize.STRING,
+    required: true
+  },
+  userPrenom: {
+    type: Sequelize.STRING,
+    required: true
+  },
   message: {
     type: Sequelize.STRING,
     required: true
