@@ -25,8 +25,9 @@ module.exports.lireUnPost = async (req,res) =>{
   try {
     const post = await PostModel.findOne({where: {id: req.params.id}})
     const commentaire = await CommentaireModel.findAll({where: {postId: post.id}})
+    const like = await LikeModel.findAll({where: {postId: post.id}})
 
-    const postData = [post, commentaire]
+    const postData = [post, commentaire, like]
 
     return res.status(200).json(postData)
   }
@@ -114,7 +115,7 @@ module.exports.suppressionPost = async (req, res) => {
           await LikeModel.destroy({
             where: { postId: postId, userId: userId },
           });
-          res.json({ like: "Supprimé" });
+          res.send("Post supprimé")
         } catch(err) {
           res.status(500).json({ err })
         }

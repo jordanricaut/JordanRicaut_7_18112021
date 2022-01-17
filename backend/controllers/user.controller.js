@@ -1,5 +1,6 @@
 // Importation du model pour les commentaires
 const UserModel = require('../models/user')
+const LikeModel = require('../models/like')
 // Liste des paquets utilisés
 const bcrypt = require('bcrypt');
 
@@ -7,6 +8,7 @@ const bcrypt = require('bcrypt');
 module.exports.getAllUsers = async (req, res, next) => {
   try {
     const users = await UserModel.findAll()
+
 
     return res.status(200).json(users)
   }
@@ -19,8 +21,12 @@ module.exports.getAllUsers = async (req, res, next) => {
 module.exports.getOneUser = async (req, res, next) => {
   try {
     const user = await UserModel.findOne({where: {id: req.params.id}})
+    const likeUsers = await LikeModel.findAll({where: {userId: user.id}})
 
-    return res.status(200).json(user)
+    const usersData = [user, likeUsers]
+
+
+    return res.status(200).json(usersData)
   }
   catch(err) {
     res.status(500).json({ err })
