@@ -24,9 +24,6 @@ const FilActu = () => {
             return <Card post={post} key={post.id}/>;
           })}
       </ul>
-      <ul>
-          test
-      </ul>
     </div>
   );
 };

@@ -12,7 +12,7 @@
 *::selection {
   background: '#F44336';
 }
-#root {
+body {
   background-color: #F0F2F5;
 }
 .mt-20 {

@@ -1,20 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { isEmpty } from "../utils";
 import { dateParser } from "../utils";
 
 const CardCommentaire = ({ post }) => {
   const [text, setText] = useState("");
   const [commentaires, setCommentaires] = useState([]);
-  const userData = useSelector((state) => state.userReducer);
-  const usersData = useSelector((state) => state.usersReducer);
-  const commentairesData = useSelector((state) => state.commentairesReducer);
-  const dispatch = useDispatch();
 
-  const handleComment = (e) => {
-    e.preventDefault();
-  };
 
   useEffect(() => {
     async function fetchData() {

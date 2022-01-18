@@ -41,7 +41,6 @@ module.exports.creationPost = async (req, res) => {
   const user = res.locals.user;
   const userId = user.dataValues.id
   const nouveauPost = new PostModel({
-    titre: req.body.titre,
     message: req.body.message,
     imageUrl: ( req.file ? `${req.protocol}://${req.get('host')}/images/post/${req.file.filename}` : null ),
       userId: userId
@@ -63,10 +62,10 @@ module.exports.modificationPost = async (req, res) => {
   if (req.file) {
     const filename = findOnePostpost.imageUrl.split('/images/')[1];
     fs.unlink(`images/${filename}`, () => {
-      findOnePostpost.update({...req.body, imageUrl: `${req.protocol}://${req.get('host')}/images/post/${req.file.filename}` })})
+      findOnePostpost.update({message: req.body.message, imageUrl: `${req.protocol}://${req.get('host')}/images/post/${req.file.filename}` })})
         return res.status(200).json({message: "Post Modifié"})
   } else {
-    findOnePostpost.update({...req.body})
+    findOnePostpost.update({message: req.body.message})
     return res.status(200).json({message: "Post Modifié"})
     }
     return res.status(500).json({message: "Problème sur la modification"})

@@ -9,10 +9,6 @@ const Post = db.define("posts", {
     autoIncrement: true,
     primaryKey: true
   },
-  titre: {
-    type: Sequelize.STRING,
-    required: true
-  },
   message: {
     type: Sequelize.STRING,
     required: true

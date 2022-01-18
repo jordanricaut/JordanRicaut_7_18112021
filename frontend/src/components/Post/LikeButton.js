@@ -15,42 +15,26 @@ const LikeButton = ({ post, like }) => {
     })
       .then((res) => {
         console.log(res);
+        setLiked(!liked);
       })
       .catch((err) => {
         console.log(err);
       });
-    setLiked(true);
   };
-
-  const handleUnlike = (e) => {
-    e.preventDefault();
-    axios({
-      method: "post",
-      url: `${process.env.REACT_APP_API_URL}api/post/${post.id}/like`,
-      withCredentials: true,
-    })
-      .then((res) => {
-        console.log(res);
-    })
-      .catch((err) => {
-        console.log(err);
-      });
-      setLiked(false);
-  };
-
 
   useEffect(() => {
-    const likers = like.map((liker) => {
+   like.map((liker) => {
       if (liker.userId.includes(uid)) setLiked(true);
       else setLiked(false);
     });
   }, [uid, like, liked]);
+
   return (
     <div className="like-container">
       {uid && liked === false && (
         <i class="far fa-heart" onClick={handleLike}></i>
       )}
-      {uid && liked && <i class="fas fa-heart" onClick={handleUnlike}></i>}
+      {uid && liked && <i class="fas fa-heart" onClick={handleLike}></i>}
     </div>
   );
 };
