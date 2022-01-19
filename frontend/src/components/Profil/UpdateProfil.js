@@ -14,7 +14,7 @@ const UpdateProfil = () => {
     const formErreur = document.querySelector(".form-erreur");
     e.preventDefault();
     if (!email) {
-      formErreur.innerHTML = "Mot de passe identique";
+      formErreur.innerHTML = "Email identique";
     } else {
       dispatch(updateProfil(userData.id, email));
       setFormSubmit(true);

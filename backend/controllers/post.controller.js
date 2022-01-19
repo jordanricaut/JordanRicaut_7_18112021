@@ -10,7 +10,8 @@ const fs = require('fs')
 // Permet d'afficher tout les posts
 module.exports.lireToutLesPosts = async (req, res) => {
   try {
-    const posts = await PostModel.findAll()
+    const posts = await PostModel.findAll({order: [["createdAt", 'DESC']]})
+
 
 
     return res.status(200).json(posts)

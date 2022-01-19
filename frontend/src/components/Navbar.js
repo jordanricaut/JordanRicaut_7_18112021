@@ -19,6 +19,9 @@ const Navbar = () => {
         {uid ? (
           <ul className="navbar-profil">
             <li>
+              <h4 className="navbar-bienvenue">Bienvenue {userData.prenom}</h4>
+            </li>
+            <li>
               <Link to="/profil">
                 <input
                   className="btn_profil"

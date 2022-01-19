@@ -25,14 +25,12 @@ module.exports.toutLesCommentairePost = async (req, res) => {
 
 // Permet la création d'un commentaire
 module.exports.creationCommentaire = async (req, res) => {
-  const user = res.locals.user;
-  const userId = user.dataValues.id
   const nouveauCommentaire = new CommentaireModel({
-    userId: userId,
-    userNom: user.nom,
-    userPrenom: user.prenom,
-    postId: req.params.id,
+    postId: req.body.postId,
+    userNom: req.body.userNom,
+    userPrenom: req.body.userPrenom,
     message: req.body.message,
+    userId: req.body.userId
   })
   try {
     const commentaire = await nouveauCommentaire.save()

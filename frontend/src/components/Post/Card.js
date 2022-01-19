@@ -25,6 +25,7 @@ const Card = ({ post }) => {
       dispatch(updatePost(post.id, textUpdate))
     }
     setIsUpdated(false)
+    window.location.reload()
   };
 
   useEffect(() => {
@@ -63,7 +64,7 @@ const Card = ({ post }) => {
                     })}
                 </h3>
               </div>
-              <span>Derniere MAJ le : {dateParser(post.createdAt)}</span>
+              <span className="heure-post">Derniere modification : {dateParser(post.createdAt)}</span>
             </div>
             {isUpdated === false && <p>{post.message}</p>}
             {isUpdated && (
@@ -99,7 +100,7 @@ const Card = ({ post }) => {
               <LikeButton post={post} like={like} />
             </div>
             <div className="commentaire">
-              {showComments && <CardCommentaire post={post} />}
+              {showComments && <CardCommentaire post={post} setShowComments={setShowComments}/>}
             </div>
           </div>
         </React.Fragment>

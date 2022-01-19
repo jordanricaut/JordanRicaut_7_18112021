@@ -1,3 +1,5 @@
+/* CSS Card des posts */
+
 .card {
   background-color: white;
   box-shadow: 0px 10px 10px 1px rgba(119, 119, 119, 0.1);
@@ -12,7 +14,6 @@
 }
 .card-header {
   display: flex;
-  align-items: baseline;
   justify-content: space-between;
   padding: 20px 10px;
 }
@@ -27,6 +28,10 @@
 .card-footer i {
   font-size: 20px;
 }
+.heure-post {
+  font-size: small;
+}
+/* CSS Card des commentaires */
 
 .card-commentaire {
   margin: 0 50px;
@@ -52,15 +57,16 @@
   row-gap: 20px;
   padding-bottom: 20px;
 }
-
+/* CSS Like */
 .fas.fa-heart {
   color: #e2264d;
 }
-
 .like-container {
   display: flex;
   flex-direction: row;
 }
+
+/* CSS Bouton modif et suppresion des posts */
 .button-container {
   font-size: 20px;
   float: right;
@@ -72,6 +78,8 @@
   margin: 0 10px 0 5px;
 }
 
+
+/* CSS Composant update message post */
 .update-post {
   display: flex;
   flex-direction: column;

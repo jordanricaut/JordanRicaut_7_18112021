@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPosts } from "../actions/post.actions";
+import { getPosts } from "../actions/posts.actions";
 import Card from "./Post/Card";
 import { isEmpty } from "./utils";
 
 const FilActu = () => {
   const [chargementPost, setChargementPost] = useState(true);
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.postReducer);
+  const posts = useSelector((state) => state.postsReducer);
 
   useEffect(() => {
     if (chargementPost) {

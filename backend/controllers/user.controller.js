@@ -17,8 +17,21 @@ module.exports.getAllUsers = async (req, res, next) => {
   }
 }
 
-// Permet l'affichage d'un utilisateur
 module.exports.getOneUser = async (req, res, next) => {
+  try {
+    const user = await UserModel.findOne({where: {id: req.params.id}})
+
+
+    return res.status(200).json(user)
+  }
+  catch(err) {
+    res.status(500).json({ err })
+  }
+}
+
+
+// Permet l'affichage d'un utilisateur et de ses infos
+module.exports.getOneUserInfos = async (req, res, next) => {
   try {
     const user = await UserModel.findOne({where: {id: req.params.id}})
     const likeUsers = await LikeModel.findAll({where: {userId: user.id}})

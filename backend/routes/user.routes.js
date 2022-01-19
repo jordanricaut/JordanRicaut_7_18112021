@@ -10,6 +10,7 @@ router.get("/deconnexion", authController.deconnexion)
 // Gestion des routes des controllers des utilisateurs
 router.get("/", userController.getAllUsers)
 router.get("/:id", userController.getOneUser)
+router.get("/data/:id", userController.getOneUserInfos)
 router.put("/:id", userController.modifyOneUser)
 router.delete("/:id", userController.deleteOneUser)
 

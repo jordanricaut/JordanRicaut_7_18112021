@@ -1,17 +1,18 @@
 import axios from "axios";
 
 // Posts
-export const GET_POSTS = "GET_POSTS";
+export const GET_ONE_POST = "GET_ONE_POST";
 export const UPDATE_POST = "UPDATE_POST";
 export const DELETE_POST = "DELETE_POST";
 export const LIKE_POST = "LIKE_POST";
 
-export const getPosts = () => {
+
+export const getOnePost = (postId) => {
   return (dispatch) => {
     return axios
-      .get(`${process.env.REACT_APP_API_URL}api/post/`)
+      .get(`${process.env.REACT_APP_API_URL}api/post/${postId}`)
       .then((res) => {
-        dispatch({ type: GET_POSTS, payload: res.data });
+        dispatch({ type: GET_ONE_POST, payload: res.data });
       })
       .catch((err) => console.log(err));
   };
@@ -47,4 +48,3 @@ export const deletePost = (postId) => {
       });
   };
 };
-
