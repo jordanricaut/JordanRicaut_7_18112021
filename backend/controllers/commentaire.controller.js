@@ -63,8 +63,9 @@ module.exports.modificationCommentaire = async (req, res) => {
 // Permet la suppresion d'un commentaire
 module.exports.suppressionCommentaire = async (req, res) => {
   try {
-    const post = await CommentaireModel.destroy({where: {id: req.params.id}})
-    return res.status(200).json({message: 'Commentaire Supprimé'})
+    const commentaireDelete = await CommentaireModel.findOne({where: {id:req.params.id}})
+    const commentaire = await CommentaireModel.destroy({where: {id: req.params.id}})
+    return res.status(200).json(commentaireDelete)
   }
   catch(err) {
     res.status(500).json(err)

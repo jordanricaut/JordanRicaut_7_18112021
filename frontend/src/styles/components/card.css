@@ -57,6 +57,29 @@
   row-gap: 20px;
   padding-bottom: 20px;
 }
+
+.form-commentaire {
+  display: flex;
+  margin-left: 50px;
+  column-gap: 20px;
+}
+
+.form-commentaire input[type=text] {
+  width: 200px;
+}
+
+.form-commentaire input[type=submit] {
+  padding: 10px 30px;
+  color: white;
+  background-color: #f44336;
+}
+
+.button-container-commentaire {
+  font-size: 20px;
+  margin: 5px 10px;
+  display: flex;
+  justify-content: flex-end;
+}
 /* CSS Like */
 .fas.fa-heart {
   color: #e2264d;

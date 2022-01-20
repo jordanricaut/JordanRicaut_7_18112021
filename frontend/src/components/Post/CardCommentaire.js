@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addComment } from "../../actions/post.actions";
 import { getPosts } from "../../actions/posts.actions";
 import { dateParser } from "../utils";
+import EditDeleteCommentaire from "./EditDeleteCommentaire";
 
 const CardCommentaire = ({ post }) => {
   const [text, setText] = useState("");
@@ -25,12 +26,10 @@ const CardCommentaire = ({ post }) => {
           message: text,
           userId: userData.id,
         },
-      })
-        .then((res) => {
-          console.log(res.data)
-          commentaires.push(res.data)
-          setText('')
-        })
+      }).then((res) => {
+        commentaires.push(res.data);
+        setText("");
+      });
     }
   };
   useEffect(() => {
@@ -57,6 +56,7 @@ const CardCommentaire = ({ post }) => {
                 <span>{dateParser(commentaire.createdAt)}</span>
               </div>
               <p className="commentaire-message">{commentaire.message}</p>
+              <EditDeleteCommentaire setCommentaires={setCommentaires} commentaires={commentaires} com={commentaire} post={post} />
             </div>
           </div>
         );
