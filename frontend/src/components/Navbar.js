@@ -40,7 +40,7 @@ const Navbar = () => {
                 <input
                   className="btn_profil"
                   type="button"
-                  value="Se connecter"
+                  value="S'inscrire / Se connecter"
                 />
               </Link>
             </li>

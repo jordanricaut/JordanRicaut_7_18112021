@@ -40,7 +40,6 @@ const InscriptionForm = () => {
         },
       })
         .then((res) => {
-          console.log(res);
           setFormSubmit(true)
         })
         .catch((err) => {

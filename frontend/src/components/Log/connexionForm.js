@@ -19,7 +19,6 @@ const ConnexionForm = () => {
       },
     })
       .then((res) => {
-        console.log(res);
         window.location = "/";
       })
       .catch((err) => {

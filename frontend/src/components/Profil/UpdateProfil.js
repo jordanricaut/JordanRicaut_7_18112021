@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProfil, updateProfil } from "../../actions/user.actions";
+import { updateProfil } from "../../actions/user.actions";
 import { dateParser } from "../utils";
-import cookie from "js-cookie";
 
 
 const UpdateProfil = () => {

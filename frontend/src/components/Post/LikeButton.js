@@ -14,7 +14,6 @@ const LikeButton = ({ post, like }) => {
       withCredentials: true,
     })
       .then((res) => {
-        console.log(res);
         setLiked(!liked);
       })
       .catch((err) => {
@@ -23,18 +22,21 @@ const LikeButton = ({ post, like }) => {
   };
 
   useEffect(() => {
-   like.map((liker) => {
+    like.map((liker) => {
       if (liker.userId.includes(uid)) setLiked(true);
-      else setLiked(false);
+      else {
+        setLiked(false);
+      }
+      return null;
     });
   }, [uid, like, liked]);
 
   return (
     <div className="like-container">
       {uid && liked === false && (
-        <i class="far fa-heart" onClick={handleLike}></i>
+        <i className="far fa-heart" onClick={handleLike}></i>
       )}
-      {uid && liked && <i class="fas fa-heart" onClick={handleLike}></i>}
+      {uid && liked && <i className="fas fa-heart" onClick={handleLike}></i>}
     </div>
   );
 };

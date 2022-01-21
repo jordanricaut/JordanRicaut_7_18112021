@@ -1,8 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addComment } from "../../actions/post.actions";
-import { getPosts } from "../../actions/posts.actions";
+import { useSelector } from "react-redux";
 import { dateParser } from "../utils";
 import EditDeleteCommentaire from "./EditDeleteCommentaire";
 
@@ -10,7 +8,6 @@ const CardCommentaire = ({ post }) => {
   const [text, setText] = useState("");
   const [commentaires, setCommentaires] = useState([]);
   const userData = useSelector((state) => state.userReducer);
-  const dispatch = useDispatch();
 
   const handleComment = (e) => {
     e.preventDefault();
@@ -40,7 +37,7 @@ const CardCommentaire = ({ post }) => {
       setCommentaires(request.data[1]);
     }
     fetchData();
-  }, []);
+  }, [post.id]);
 
   return (
     <div className="commentaire-container">

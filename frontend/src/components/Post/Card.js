@@ -16,7 +16,6 @@ const Card = ({ post }) => {
   const [enChargement, setEnChargement] = useState(true);
   const [showComments, setShowComments] = useState(false);
   const [like, setLike] = useState([]);
-  const userData = useSelector((state) => state.userReducer);
   const usersData = useSelector((state) => state.usersReducer);
   const dispatch = useDispatch()
 
@@ -40,7 +39,7 @@ const Card = ({ post }) => {
       setLike(request.data[2]);
     }
     fetchData();
-  }, [enChargement]);
+  }, [enChargement,post.id]);
 
   return (
     <li className="card-container" key={post.id}>
@@ -55,12 +54,14 @@ const Card = ({ post }) => {
                   {!isEmpty(usersData[0]) &&
                     usersData.map((user) => {
                       if (user.id === post.userId) return user.nom;
+                      else return null
                     })}
                 </h3>
                 <h3>
                   {!isEmpty(usersData[0]) &&
                     usersData.map((user) => {
                       if (user.id === post.userId) return user.prenom;
+                      else return null
                     })}
                 </h3>
               </div>
@@ -82,19 +83,19 @@ const Card = ({ post }) => {
             {uid === post.userId && (
               <div className="button-container">
                 <i
-                  class="far fa-edit"
+                  className="far fa-edit"
                   onClick={() => setIsUpdated(!isUpdated)}
                 ></i>
-                <DeleteCard post={post.id} />
+                <DeleteCard  post={post} />
               </div>
             )}
             {post.imageUrl && (
-              <img src={post.imageUrl} alt="card-image" className="" />
+              <img src={post.imageUrl} alt={`file-post-${post.id}`} />
             )}
             <div className="card-footer">
               <i
                 onClick={() => setShowComments(!showComments)}
-                class="far fa-comments"
+                className="far fa-comments"
               ></i>
 
               <LikeButton post={post} like={like} />

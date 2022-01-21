@@ -1,3 +1,68 @@
+.nouveau-post-container {
+  background-color: white;
+  box-shadow: 0px 10px 10px 1px rgba(119, 119, 119, 0.1);
+  border-radius: 15px;
+  margin: 30px 250px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.post-form textarea {
+  padding: 5px 10px;
+  border: 1px solid #008CBA;
+  width: 100%;
+  resize: none;
+  height: 80px;
+}
+.btn-envoyer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 15px;
+  justify-content: space-between;
+}
+.envoie-post {
+  background-color: white;
+  border: 1px solid #008CBA;
+  color: #008CBA;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.envoie-post:hover {
+  transition: 0.3s ease-in-out;
+  background-color: #008CBA;
+  color: white;
+}
+
+.annuler-post {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.icon-image button {
+  position: relative;
+  border-radius: 3px;
+  background-color: white;
+  overflow: hidden;
+  height: 30px;
+}
+.icon-image button:hover {
+  transition: 0.2s;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.icon-image img {
+  max-height: 100%;
+}
+.icon-image input[type="file"] {
+  cursor: pointer;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  opacity: 0;
+}
+
 /* CSS Card des posts */
 
 .card {
@@ -28,9 +93,15 @@
 .card-footer i {
   font-size: 20px;
 }
+.far.fa-comments:hover {
+  transition: 0.2s;
+  transform: scale(1.2);
+  cursor: pointer;
+}
 .heure-post {
   font-size: small;
 }
+
 /* CSS Card des commentaires */
 
 .card-commentaire {
@@ -64,11 +135,11 @@
   column-gap: 20px;
 }
 
-.form-commentaire input[type=text] {
+.form-commentaire input[type="text"] {
   width: 200px;
 }
 
-.form-commentaire input[type=submit] {
+.form-commentaire input[type="submit"] {
   padding: 10px 30px;
   color: white;
   background-color: #f44336;
@@ -100,7 +171,19 @@
   color: #f44336;
   margin: 0 10px 0 5px;
 }
+.far.fa-edit:hover {
+  transition: 0.2s;
+  transform: scale(1.1);
+  cursor: pointer;
 
+
+}
+.far.fa-trash-alt:hover {
+  transition: 0.2s;
+  transform: scale(1.1);
+  cursor: pointer;
+
+}
 
 /* CSS Composant update message post */
 .update-post {
