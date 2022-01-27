@@ -66,7 +66,7 @@ const NouveauPost = () => {
                 type="file"
                 id="file-upload"
                 name="imageUrl"
-                accept=".jpg, .jpeg, .png"
+                accept=".jpg, .jpeg, .png .gif"
                 onChange={(e) => handlePicture(e)}
               />
               <img src="./img/icons/picture.svg" alt="imageUrl"/>

@@ -14,7 +14,7 @@ function Profil() {
       ) : (
         <div className="log-container">
           <div className="log-gauche">
-            <img src="./img/log-img.jpg" alt="log-img" />
+            <img src="./img/log-img.png" alt="log-img" />
           </div>
           <div className="log-droite">
             <Log inscription={true} connexion={false} />

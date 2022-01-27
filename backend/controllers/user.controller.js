@@ -66,6 +66,7 @@ module.exports.modifyOneUser = async (req,res, next) => {
 module.exports.deleteOneUser = async (req,res, next) => {
   try {
     const user = await UserModel.destroy({where: {id: req.params.id}})
+    res.cookie('jwt', '', {maxAge: 1})
     return res.status(200).json({message: 'Utilisateur Supprimé'})
   }
   catch(err) {

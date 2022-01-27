@@ -9,7 +9,7 @@
   row-gap: 20px;
 }
 .log-gauche img {
-  width: 400px;
+  width: 500px;
 }
 .log-container {
   display: flex; /* contexte sur le parent */
