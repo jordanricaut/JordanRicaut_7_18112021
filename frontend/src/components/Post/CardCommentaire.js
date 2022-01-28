@@ -50,7 +50,7 @@ const CardCommentaire = ({ post }) => {
                   <h4>{commentaire.userNom}</h4>
                   <h4>{commentaire.userPrenom}</h4>
                 </div>
-                <span>{dateParser(commentaire.createdAt)}</span>
+                <span className="heure-post">Il y a {dateParser(commentaire.createdAt)}</span>
               </div>
               <p className="commentaire-message">{commentaire.message}</p>
               <EditDeleteCommentaire setCommentaires={setCommentaires} commentaires={commentaires} com={commentaire} post={post} />

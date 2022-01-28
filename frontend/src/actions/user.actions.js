@@ -27,18 +27,18 @@ export const getUserInfo = (uid) => {
   };
 };
 
-export const updateProfil = (userId, email) => {
+export const updateProfil = (userId, mdp) => {
   return (dispatch) => {
     return axios({
       method: "PUT",
       url: `${process.env.REACT_APP_API_URL}api/user/` + userId,
       data: {
-        email: email
+        mdp: mdp
       }
     })
       .then((res) => {
         console.log(res);
-        dispatch({ type: UPDATE_PROFIL, payload: email });
+        dispatch({ type: UPDATE_PROFIL, payload: mdp });
       })
       .catch((err) => console.log(err));
   };

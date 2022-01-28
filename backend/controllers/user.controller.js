@@ -53,7 +53,9 @@ module.exports.modifyOneUser = async (req,res, next) => {
   if (!findOneUser) {
     res.status(400).json({message: "Utilisateur inconnu"})
   }
-    findOneUser.update({email: req.body.email})
+  const mdp = await bcrypt.hash(req.body.mdp, 10)
+
+    findOneUser.update({mdp: mdp})
     res.status(200).json({message: 'Utilisateur modifié !'})
   } catch(err) {
     console.log(req.body);

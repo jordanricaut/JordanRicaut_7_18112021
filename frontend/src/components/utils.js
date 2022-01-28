@@ -1,5 +1,27 @@
+import dayjs from 'dayjs';
+
+require('dayjs/locale/fr')
+
+dayjs.locale('fr')
+
+var relativeTime = require('dayjs/plugin/relativeTime')
+dayjs.extend(relativeTime)
+
+
+
 export const dateParser = (num) => {
-    let options = {hour: "2-digit", minute: "2-digit", weekday: "long", year: "numeric", month: "short", day:"numeric"}
+
+  const datePost = dayjs().from(dayjs(num), true)
+  
+
+  return datePost.toString()
+  
+
+}
+
+export const userDateParser = (num) => {
+
+    let options = {weekday: "long", year: "numeric", month: "short", day:"numeric"}
 
     let timestamp = Date.parse(num)
 

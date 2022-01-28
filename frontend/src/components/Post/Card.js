@@ -65,7 +65,7 @@ const Card = ({ post }) => {
                     })}
                 </h3>
               </div>
-              <span className="heure-post">Derniere modification : {dateParser(post.createdAt)}</span>
+              <span className="heure-post">Derniere modification il y a {dateParser(post.createdAt)}</span>
             </div>
             {isUpdated === false && <p>{post.message}</p>}
             {isUpdated && (

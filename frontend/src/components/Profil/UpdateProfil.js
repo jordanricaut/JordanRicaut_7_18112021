@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateProfil } from "../../actions/user.actions";
-import { dateParser } from "../utils";
+import { dateParser, userDateParser } from "../utils";
 import cookie from "js-cookie";
 import axios from "axios";
 
 const UpdateProfil = () => {
   const [formSubmit, setFormSubmit] = useState(false);
-  const [email, setEmail] = useState("");
+  const [mdp, setMdp] = useState("");
   const dispatch = useDispatch();
 
   const handleDelete = (e) => {
@@ -29,15 +29,10 @@ const UpdateProfil = () => {
   };
 
   const handleUpdate = (e) => {
-    const formErreur = document.querySelector(".form-erreur");
     e.preventDefault();
-    if (!email) {
-      formErreur.innerHTML = "Email identique";
-    } else {
-      dispatch(updateProfil(userData.id, email));
+      dispatch(updateProfil(userData.id, mdp));
       setFormSubmit(true);
       window.location.reload();
-    }
   };
 
   const userData = useSelector((state) => state.userReducer);
@@ -61,14 +56,13 @@ const UpdateProfil = () => {
             className="log-form"
           >
             <label htmlFor="email" className="gras">
-              Modifier votre email
+              Modifier votre mot de passe
             </label>
             <input
-              type="text"
+              type="password"
               name="email"
               id="email"
-              onChange={(e) => setEmail(e.target.value)}
-              defaultValue={userData.email}
+              onChange={(e) => setMdp(e.target.value)}
             />
             <input
               type="submit"
@@ -85,9 +79,10 @@ const UpdateProfil = () => {
           <div className="profil-infos mt-20">
             <p>Prénom : {userData.prenom}</p>
             <p>Nom : {userData.nom}</p>
+            <p>Email : {userData.email}</p>
           </div>
           <p className="mt-10">
-            Membre depuis le : {dateParser(userData.createdAt)}
+            Membre depuis le {userDateParser(userData.createdAt)}
           </p>
           <form
             action=""
@@ -96,14 +91,13 @@ const UpdateProfil = () => {
             className="log-form"
           >
             <label htmlFor="email" className="gras">
-              Modifier votre email
+              Modifier votre mot de passe
             </label>
             <input
-              type="text"
+              type="password"
               name="email"
               id="email"
-              onChange={(e) => setEmail(e.target.value)}
-              defaultValue={userData.email}
+              onChange={(e) => setMdp(e.target.value)}
             />
             <input
               type="submit"
@@ -111,7 +105,6 @@ const UpdateProfil = () => {
               value="Valider modification"
               onClick={handleUpdate}
             />
-            <div className="form-erreur erreur"></div>
           </form>
           <button class="btn-delete" type="button" onClick={handleDelete}>
             Supprimer votre profil
