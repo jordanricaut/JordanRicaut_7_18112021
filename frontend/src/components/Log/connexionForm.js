@@ -22,7 +22,7 @@ const ConnexionForm = () => {
         window.location = "/";
       })
       .catch((err) => {
-        formErreur.innerHTML = err;
+        formErreur.innerHTML = "Votre email ou mot de passe n'est pas bon. Veuillez réessayer.";
       });
   };
 

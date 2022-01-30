@@ -6,5 +6,4 @@ module.exports = new Sequelize(process.env.MYSQL_BDD, process.env.MYSQL_UTIL, pr
   host: process.env.MYSQL_URL,
   dialect: 'mysql',
   port: process.env.MYSQL_PORT,
-  timezone: '+1:00'
 });

@@ -65,8 +65,17 @@ const Card = ({ post }) => {
                     })}
                 </h3>
               </div>
-              <span className="heure-post">Derniere modification il y a {dateParser(post.createdAt)}</span>
+              <span className="heure-post">Dernière modification il y a {dateParser(post.createdAt)}</span>
             </div>
+            {uid === post.userId && (
+              <div className="button-container">
+                <i
+                  className="far fa-edit"
+                  onClick={() => setIsUpdated(!isUpdated)}
+                ></i>
+                <DeleteCard  post={post} />
+              </div>
+            )}
             {isUpdated === false && <p>{post.message}</p>}
             {isUpdated && (
               <div className="update-post">
@@ -78,15 +87,6 @@ const Card = ({ post }) => {
                   <button className="btn" onClick={updateItem}>
                     Valider les modifications
                   </button>
-              </div>
-            )}
-            {uid === post.userId && (
-              <div className="button-container">
-                <i
-                  className="far fa-edit"
-                  onClick={() => setIsUpdated(!isUpdated)}
-                ></i>
-                <DeleteCard  post={post} />
               </div>
             )}
             {post.imageUrl && (
